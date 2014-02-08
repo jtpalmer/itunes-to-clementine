@@ -25,13 +25,17 @@ sub main {
 
     pod2usage( -exitval => 0, -verbose => 2 ) if $help;
 
-    defined $library_file or die "No input file specified\n";
+    defined $library_file or die "No input library file specified\n";
 
     -f $library_file or die "Not a file '$library_file'\n";
 
     my $library = Mac::iTunes::Library::XML->parse($library_file);
 
-    my $dbh = DBI->connect( 'dbi:SQLite:dbname=' . $database_file );
+    defined $database_file or die "No database file specified\n";
+
+    my $dbh = DBI->connect( 'dbi:SQLite:dbname=' . $database_file )
+        or die "Failed to connect to database: " . $DBI::errstr . "\n";
+
     my $sql = 'UPDATE songs SET rating = ? WHERE artist = ? and title = ?';
     my $sth = $dbh->prepare($sql);
 
