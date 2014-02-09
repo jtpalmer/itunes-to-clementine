@@ -62,3 +62,76 @@ sub main {
 
 __END__
 
+=pod
+
+=head1 SYNOPSIS
+
+    $ my-script.pl
+
+=head1 DESCRIPTION
+
+What does this script do?
+
+=head1 OPTIONS
+
+=over 4
+
+=item B<--section>=I<manext>
+
+=item B<-s> I<manext>, B<--section>=I<manext>
+
+=back
+
+=head1 RETURN VALUE
+
+Returns 0 in success and non-zero on failure.
+
+=head1 ERRORS
+
+Exceptions, error return codes, exit statuses, and errno settings.
+
+=head1 EXAMPLES
+
+Run the program:
+
+    example --example
+
+=head1 ENVIRONMENT
+
+=over 4
+
+=item HOME
+
+Used to determine the user's home directory.  F<.foorc> in this
+directory is read for configuration details, if it exists.
+
+=back
+
+=head1 FILES
+
+=head1 CAVEATS
+
+Things to take special care with.
+
+=head1 BUGS
+
+These things are broken.
+
+=head1 RESTRICTIONS
+
+These things won't be fixed.
+
+=head1 NOTES
+
+Miscellaneous commentary.
+
+=head1 SEE ALSO
+
+=over 4
+
+=item * L<perl>
+
+=back
+
+=cut
+
