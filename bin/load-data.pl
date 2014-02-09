@@ -25,13 +25,13 @@ sub main {
 
     pod2usage( -exitval => 0, -verbose => 2 ) if $help;
 
-    defined $library_file or die "No input library file specified\n";
+    defined $library_file or die "No library file specified\n";
+    defined $database_file or die "No database file specified\n";
 
     -f $library_file or die "Not a file '$library_file'\n";
+    -f $database_file or die "Not a file '$database_file'\n";
 
     my $library = Mac::iTunes::Library::XML->parse($library_file);
-
-    defined $database_file or die "No database file specified\n";
 
     my $dbh = DBI->connect( 'dbi:SQLite:dbname=' . $database_file )
         or die "Failed to connect to database: " . $DBI::errstr . "\n";
