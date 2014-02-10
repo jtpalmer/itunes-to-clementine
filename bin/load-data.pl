@@ -10,15 +10,16 @@ use DBI;
 main(@ARGV);
 
 sub main {
-    my ( $help, $verbose, $debug, $library_file, $database_file );
+    my ( $help, $verbose, $quiet, $debug, $library_file, $database_file );
 
     GetOptionsFromArray(
         \@_,
-        'help|h'      => \$help,
-        'verbose|v'   => \$verbose,
-        'debug|d'     => \$debug,
-        'library|l=s' => \$library_file,
-        'database=s'  => \$database_file,
+        'help|h'       => \$help,
+        'verbose|v'    => \$verbose,
+        'quiet|v'      => \$quiet,
+        'debug'        => \$debug,
+        'library|l=s'  => \$library_file,
+        'database|d=s' => \$database_file,
     ) or pod2usage();
 
     pod2usage( -exitval => 0, -verbose => 2 ) if $help;
