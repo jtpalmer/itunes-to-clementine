@@ -38,22 +38,22 @@ sub main {
     my $sql = 'UPDATE songs SET rating = ? WHERE artist = ? and title = ?';
     my $sth = $dbh->prepare($sql);
 
-    say 'Track count: ' . $library->num();
+    say 'Track count: ' . $library->num() if $verbose;
 
     my %items = $library->items();
     while ( my ( $artist_name, $songs ) = each %items ) {
-        say 'Artist: ' . $artist_name;
+        say 'Artist: ' . $artist_name if $verbose;
         while ( my ( $song_name, $song_items ) = each %$songs ) {
-            say 'Song: ' . $song_name;
+            say 'Song: ' . $song_name if $verbose;
             my $rating;
             for my $item (@$song_items) {
                 $rating = $item->rating() // 0;
-                say 'Rating: ' . $rating;
+                say 'Rating: ' . $rating if $verbose;
             }
 
             $sth->execute( $rating / 100, $artist_name, $song_name );
         }
-        say '-' x 76;
+        say '-' x 76 if $verbose;
     }
 
     exit;
