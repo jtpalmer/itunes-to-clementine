@@ -65,19 +65,40 @@ __END__
 
 =head1 SYNOPSIS
 
-    $ my-script.pl
+    $ load-data --library iTunes.xml --database clementine.db
 
 =head1 DESCRIPTION
 
-What does this script do?
+Load song ratings from an iTunes library XML file into Clementine's
+database.
 
 =head1 OPTIONS
 
 =over 4
 
-=item B<--section>=I<manext>
+=item B<-h>, B<--help>
 
-=item B<-s> I<manext>, B<--section>=I<manext>
+Output help text.
+
+=item B<-v>, B<--verbose>
+
+Display verbose output.
+
+=item B<-q>, B<--quiet>
+
+Only output errors.
+
+=item B<--debug>
+
+Display debugging output.
+
+=item B<-l> I<library-file>, B<--library>=I<library-file>
+
+iTunes library xml file to use.
+
+=item B<-d> I<database-file>, B<--database>=I<database-file>
+
+The clemntine database file to update.
 
 =back
 
@@ -95,30 +116,7 @@ Run the program:
 
     example --example
 
-=head1 ENVIRONMENT
-
-=over 4
-
-=item HOME
-
-Used to determine the user's home directory.  F<.foorc> in this
-directory is read for configuration details, if it exists.
-
-=back
-
 =head1 FILES
-
-=head1 CAVEATS
-
-Things to take special care with.
-
-=head1 BUGS
-
-These things are broken.
-
-=head1 RESTRICTIONS
-
-These things won't be fixed.
 
 =head1 NOTES
 
@@ -128,7 +126,7 @@ Miscellaneous commentary.
 
 =over 4
 
-=item * L<perl>
+=item * L<Mac::iTunes::Library::XML>
 
 =back
 
