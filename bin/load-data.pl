@@ -2,11 +2,9 @@
 use strict;
 use warnings;
 use feature qw(:5.12);
-use autodie qw(:all);
 use Getopt::Long qw(GetOptionsFromArray);
 use Pod::Usage qw(pod2usage);
 use Mac::iTunes::Library::XML;
-use Try::Tiny;
 use DBI;
 
 main(@ARGV);
